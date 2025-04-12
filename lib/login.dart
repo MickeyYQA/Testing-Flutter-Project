@@ -10,12 +10,14 @@ class loginPage extends StatefulWidget {
 class _loginPageState extends State<loginPage> {
   String usernameText = "";
   TextEditingController usernameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  String hint = "Logged out";
   void checkUsernameInput() {
     setState(() {
       usernameText = usernameController.text;
+      hint = usernameController.text == ""? "Username cannot be empty" : "Logged in as $usernameText";
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,8 +36,19 @@ class _loginPageState extends State<loginPage> {
                   border: OutlineInputBorder(),
                 ),
               ),
-              
-
+              TextField(
+                controller: passwordController,
+                obscureText: true,
+                decoration: const InputDecoration(
+                  labelText: "Password",
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: checkUsernameInput,
+                child: Text("Login")
+              ),
+              Text(hint),
             ])));
   }
 }
