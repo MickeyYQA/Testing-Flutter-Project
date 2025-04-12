@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'profilePage.dart';
 import 'settingsPage.dart';
+import 'login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -80,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Image.network("https://img1.baidu.com/it/u=3963363225,1398814048&fm=253&fmt=auto&app=138&f=JPEG?w=1494&h=800"),
             Image.asset("images/boeing.jpg"),
           ],
-        ): pageIndex == 1 ? ProfilePage() : settingsPage(),
+        ): pageIndex == 1 ? ProfilePage() : loginPage(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [
@@ -92,9 +93,10 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.phone),
             label: "phone",
           ),
+          
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: "settings",
+            icon: Icon(Icons.login),
+            label: "login",
           ),
         ],
         currentIndex: pageIndex,
