@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'profilePage.dart';
 import 'settingsPage.dart';
 import 'login.dart';
+import 'timelineItem.dart';
+import 'timelinePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -77,11 +79,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     )
                   );
                 },
-                child: Text('bonjour')),
-            Image.network("https://img1.baidu.com/it/u=3963363225,1398814048&fm=253&fmt=auto&app=138&f=JPEG?w=1494&h=800"),
+                child: Text('Go to profile page')),
             Image.asset("images/boeing.jpg"),
           ],
-        ): pageIndex == 1 ? ProfilePage() : loginPage(),
+        ): pageIndex == 1 ? ProfilePage() : timelinePage(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [

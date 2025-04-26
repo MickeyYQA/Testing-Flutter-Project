@@ -15,7 +15,7 @@ class _loginPageState extends State<loginPage> {
   void checkUsernameInput() {
     setState(() {
       usernameText = usernameController.text;
-      hint = usernameController.text == ""? "Username cannot be empty" : "Logged in as $usernameText";
+      hint = usernameController.text == "" ? "Username cannot be empty" : "Logged in as $usernameText";
     });
   }
   @override
@@ -29,19 +29,26 @@ class _loginPageState extends State<loginPage> {
                 // set row or column here
                 children: [
               Image.asset("images/logo.png"),
-              TextField(
-                controller: usernameController,
-                decoration: const InputDecoration(
-                  labelText: "Username",
-                  border: OutlineInputBorder(),
+              Container(
+                margin: const EdgeInsets.all(10),
+                child: TextField(
+                  controller: usernameController,
+                  decoration: const InputDecoration(
+                    labelText: "Username",
+                    border: OutlineInputBorder(),
+                  ),
                 ),
               ),
-              TextField(
-                controller: passwordController,
-                obscureText: true,
-                decoration: const InputDecoration(
-                  labelText: "Password",
-                  border: OutlineInputBorder(),
+            Container(
+              margin: const EdgeInsets.all(10),
+                child: TextField(
+                  controller: passwordController,
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    labelText: "Password",
+                    border: OutlineInputBorder(),
+                  ),
+                  
                 ),
               ),
               ElevatedButton(

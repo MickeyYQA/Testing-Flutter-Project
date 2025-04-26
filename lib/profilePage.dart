@@ -14,59 +14,59 @@ class _ProfilePageState extends State<ProfilePage> {
       greeting = greeting == "hello" ? "goodbye" : "hello";
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Contact Page"),
-        ),
-        body: Center(
-            child: Column(// set row or column here
+      appBar: AppBar(
+        title: const Text("Contact Page"),
+      ),
+      body: Center(
+        child: Column(
+          // set row or column here
+          children: [
+            Container(
+              margin: EdgeInsets.all(20),
+              padding: EdgeInsets.all(20),
+              child: Column(
                 children: [
-          //Expanded(child: Container(color: Colors.pink, height: 100)),
-          //Expanded(child: Container(color: Colors.orange, height: 100)),
-          //Expanded(child: Container(color: Colors.yellow, height: 100)),
-          Text('$greeting'),
-          ElevatedButton(
-            onPressed: changeWord,
-            child: Text("Elevated Button"),
-          ),
-          TextButton(
-            onPressed: changeWord,
-            child: Text("Text Button"),
-          ),
-          IconButton(
-            onPressed: changeWord,
-            icon: Icon(Icons.change_circle, color: Colors.red, size: 25),
-          ),
-          const Text(
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud m.",
-            softWrap: true,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 12,
-            ),
-            textAlign: TextAlign.justify,
-          ),
-          Padding(
-            padding: EdgeInsets.all(20),
-            child: TextField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: "Username",
-                hintText: "username",
-              ),
-              onChanged: (String text) {
-                print("The username is $text");
-              },
-              autocorrect: true,
-              maxLength: 20,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 12,
+                  Container(
+                    height: 50,
+                    color: Colors.red,
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        height: 500,
+                        width: 100,
+                        color: Colors.orange,
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: 500,
+                          color: Colors.yellow,
+                          padding: EdgeInsets.all(30),
+                          child: Column(
+                            children: [
+                              Container(
+                                margin: EdgeInsets.symmetric(vertical: 20),
+                                height: 50, 
+                                color: Colors.green,),
+                              Container(
+                                
+                                height: 300,
+                                 color: Colors.blue,),
+                            ],)
+                        ),
+                      )
+                    ],
+                  )
+                ],
               ),
             ),
-          ),
-        ])));
+          ],
+        ),
+      ),
+    );
   }
 }
