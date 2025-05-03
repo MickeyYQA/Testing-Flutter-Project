@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'profilePage.dart';
+import 'layoutTesting.dart';
 import 'settingsPage.dart';
 import 'login.dart';
 import 'timelineItem.dart';
 import 'timelinePage.dart';
+import 'profilePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,57 +58,58 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: pageIndex == 0 ? Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const Text('hello'),
-            ElevatedButton(
-              onPressed: incrementFive,
-              child: Text('Increment Five'),
-            ),
-            ElevatedButton(
-                onPressed: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ProfilePage(),
-                    )
-                  );
-                },
-                child: Text('Go to profile page')),
-            Image.asset("images/boeing.jpg"),
-          ],
-        ): pageIndex == 1 ? ProfilePage() : timelinePage(),
+        child: pageIndex == 0
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Text('You have pushed the button this many times:'),
+                  Text(
+                    '$_counter',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                  const Text('hello'),
+                  ElevatedButton(
+                    onPressed: incrementFive,
+                    child: Text('Increment Five'),
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProfilePage(),
+                            ));
+                      },
+                      child: Text('Go to profile page')),
+                  Image.asset("images/boeing.jpg"),
+                ],
+              )
+            : pageIndex == 1
+                ? ProfilePage()
+                : timelinePage(),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.phone),
-            label: "phone",
-          ),
-          
-          BottomNavigationBarItem(
-            icon: Icon(Icons.login),
-            label: "login",
-          ),
-        ],
-        currentIndex: pageIndex,
-        onTap: (int index){
-          setState(() {
-            pageIndex = index;
-            print(pageIndex);
-          });
-        }
-      ),
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: "Home",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.phone),
+              label: "phone",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.login),
+              label: "login",
+            ),
+          ],
+          currentIndex: pageIndex,
+          onTap: (int index) {
+            setState(() {
+              pageIndex = index;
+              print(pageIndex);
+            });
+          }),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',

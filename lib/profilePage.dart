@@ -1,71 +1,82 @@
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatefulWidget {
+class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
-
-  @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
-  String greeting = "hello";
-  void changeWord() {
-    setState(() {
-      greeting = greeting == "hello" ? "goodbye" : "hello";
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Contact Page"),
-      ),
-      body: Center(
-        child: Column(
-          // set row or column here
-          children: [
-            Container(
-              margin: EdgeInsets.all(20),
-              padding: EdgeInsets.all(20),
-              child: Column(
+      body: Column(
+        children: [
+          Expanded(
+            flex: 3,
+            child: Container(
+              color: Colors.red[900],
+              child: Center(
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundImage: AssetImage("images/sheep.jpeg"),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 4,
+            child: Container(
+              color: Colors.red,
+              padding: const EdgeInsets.all(16),
+              child: Row(
                 children: [
-                  Container(
-                    height: 50,
-                    color: Colors.red,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        height: 500,
-                        width: 100,
-                        color: Colors.orange,
+                  Expanded(child: Container()),
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: Container(
+                        width: 70,
+                        height: 70,
+                        color: Colors.green,
                       ),
-                      Expanded(
-                        child: Container(
-                          height: 500,
-                          color: Colors.yellow,
-                          padding: EdgeInsets.all(30),
-                          child: Column(
-                            children: [
-                              Container(
-                                margin: EdgeInsets.symmetric(vertical: 20),
-                                height: 50, 
-                                color: Colors.green,),
-                              Container(
-                                
-                                height: 300,
-                                 color: Colors.blue,),
-                            ],)
-                        ),
-                      )
-                    ],
-                  )
+                    ),
+                  ),
+                  Expanded(child: Container()),
+                  Expanded(
+                    child: Container(
+                      color: Colors.blue,
+                    ),
+                  ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+          Expanded(
+            flex: 3,
+            child: Container(
+              color: Colors.yellow,
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      color: Colors.indigo,
+                    ),
+                  ),
+                  Expanded(child: Container()),
+                  Expanded(child: Container()),
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        width: 70,
+                        height: 70,
+                        color: Colors.purple,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
